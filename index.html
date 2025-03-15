@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download Pinterest videos easily with DotSave">
+    <title>DotSave - Pinterest Video Downloader</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/css/styles.css" as="style">
+    <link rel="preload" href="/js/main.js" as="script">
+    
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Critical CSS -->
+    <style>
+        /* Hide content until Tailwind loads */
+        .invisible-until-loaded {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .loaded .invisible-until-loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="app-shell" class="invisible-until-loaded">
+        <!-- Header -->
+        <header class="bg-blue-600 text-white">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold">Dot<span class="text-blue-300">Save</span></h1>
+                </div>
+                <nav>
+                    <button class="md:hidden text-2xl" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#features" class="hover:text-blue-200 transition-colors">Features</a>
+                        <a href="#faq" class="hover:text-blue-200 transition-colors">FAQ</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="bg-blue-600 text-white pb-20">
+            <div class="container mx-auto px-4 py-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Pinterest Downloader</h2>
+                <p class="text-xl mb-8 text-blue-100">Download Video Pinterest to MP4</p>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white rounded-lg p-2 flex items-center">
+                        <input type="text" 
+                               placeholder="Enter Pinterest's link to download" 
+                               class="flex-1 px-4 py-3 text-gray-700 focus:outline-none"
+                               id="url-input">
+                        <button class="bg-blue-100 text-blue-600 px-4 py-2 rounded ml-2 hover:bg-blue-200 transition-colors"
+                                id="paste-btn">
+                            <i class="far fa-clipboard mr-2"></i>Paste
+                        </button>
+                    </div>
+                    <button class="mt-4 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg w-full md:w-auto transition-colors flex items-center justify-center"
+                            id="download-btn">
+                        <i class="fas fa-download mr-2"></i>Download
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center mb-12">Download Video Pinterest with high quality HD, Full HD, 2k, 4K</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">High-Quality Downloads</h4>
+                        <p class="text-gray-600">Download videos in their highest available quality, from HD up to 4K resolution.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-file-video"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Multiple Formats</h4>
+                        <p class="text-gray-600">Choose from various video formats including MP4, ensuring compatibility with all devices.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Fast Processing</h4>
+                        <p class="text-gray-600">Quick and efficient video processing for immediate downloads.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h3>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">Can I download videos from Pinterest?</h4>
+                        <p class="text-gray-600">Yes, you can easily download any video from Pinterest using our downloader. Simply paste the video URL and click download.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">What video quality can I download?</h4>
+                        <p class="text-gray-600">We support downloading videos in various qualities, from standard definition up to 4K (when available).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4 text-center">
+                <p>&copy; 2023 DotSave. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/main.js" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Mark as loaded once DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+</body>
+</html>
